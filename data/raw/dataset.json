@@ -1,0 +1,212 @@
+[
+  {
+    "id": "sent_001",
+    "question_type": "sentiment",
+    "question": "Analyze the sentiment of: 'I absolutely loved this movie! The acting was superb and the storyline kept me engaged throughout.'",
+    "expected_answer": "positive",
+    "metadata": {"difficulty": "easy", "domain": "movie_review"}
+  },
+  {
+    "id": "sent_002",
+    "question_type": "sentiment",
+    "question": "Analyze the sentiment of: 'This product is terrible. It broke after just one day and customer service was unhelpful.'",
+    "expected_answer": "negative",
+    "metadata": {"difficulty": "easy", "domain": "product_review"}
+  },
+  {
+    "id": "sent_003",
+    "question_type": "sentiment",
+    "question": "Analyze the sentiment of: 'The restaurant serves food. The prices are average for the area.'",
+    "expected_answer": "neutral",
+    "metadata": {"difficulty": "medium", "domain": "restaurant_review"}
+  },
+  {
+    "id": "sent_004",
+    "question_type": "sentiment",
+    "question": "Analyze the sentiment of: 'While the service was slow, the food quality made up for it. I would probably come back.'",
+    "expected_answer": "positive",
+    "metadata": {"difficulty": "hard", "domain": "restaurant_review"}
+  },
+  {
+    "id": "sent_005",
+    "question_type": "sentiment",
+    "question": "Analyze the sentiment of: 'The new software update has both pros and cons, but overall it fails to impress.'",
+    "expected_answer": "negative",
+    "metadata": {"difficulty": "hard", "domain": "tech_review"}
+  },
+  {
+    "id": "sent_006",
+    "question_type": "sentiment",
+    "question": "Analyze the sentiment of: 'Best purchase I ever made! Exceeded all my expectations!'",
+    "expected_answer": "positive",
+    "metadata": {"difficulty": "easy", "domain": "product_review"}
+  },
+  {
+    "id": "sent_007",
+    "question_type": "sentiment",
+    "question": "Analyze the sentiment of: 'The meeting is scheduled for 3 PM tomorrow in conference room B.'",
+    "expected_answer": "neutral",
+    "metadata": {"difficulty": "easy", "domain": "business"}
+  },
+  {
+    "id": "sent_008",
+    "question_type": "sentiment",
+    "question": "Analyze the sentiment of: 'I am extremely disappointed with how this situation was handled.'",
+    "expected_answer": "negative",
+    "metadata": {"difficulty": "easy", "domain": "customer_service"}
+  },
+  {
+    "id": "sent_009",
+    "question_type": "sentiment",
+    "question": "Analyze the sentiment of: 'The book was okay. Not great, not terrible, just okay.'",
+    "expected_answer": "neutral",
+    "metadata": {"difficulty": "medium", "domain": "book_review"}
+  },
+  {
+    "id": "sent_010",
+    "question_type": "sentiment",
+    "question": "Analyze the sentiment of: 'Despite the initial setbacks, the project turned out to be a resounding success!'",
+    "expected_answer": "positive",
+    "metadata": {"difficulty": "medium", "domain": "business"}
+  },
+  {
+    "id": "math_001",
+    "question_type": "math",
+    "question": "What is 47 + 28?",
+    "expected_answer": "75",
+    "metadata": {"difficulty": "easy", "operation": "addition"}
+  },
+  {
+    "id": "math_002",
+    "question_type": "math",
+    "question": "Calculate 156 - 89.",
+    "expected_answer": "67",
+    "metadata": {"difficulty": "easy", "operation": "subtraction"}
+  },
+  {
+    "id": "math_003",
+    "question_type": "math",
+    "question": "What is 12 × 15?",
+    "expected_answer": "180",
+    "metadata": {"difficulty": "easy", "operation": "multiplication"}
+  },
+  {
+    "id": "math_004",
+    "question_type": "math",
+    "question": "Calculate 144 ÷ 12.",
+    "expected_answer": "12",
+    "metadata": {"difficulty": "easy", "operation": "division"}
+  },
+  {
+    "id": "math_005",
+    "question_type": "math",
+    "question": "A store sells apples for $2 each and oranges for $3 each. If you buy 5 apples and 4 oranges, how much do you spend in total?",
+    "expected_answer": "22",
+    "metadata": {"difficulty": "medium", "operation": "multi-step"}
+  },
+  {
+    "id": "math_006",
+    "question_type": "math",
+    "question": "What is 15% of 200?",
+    "expected_answer": "30",
+    "metadata": {"difficulty": "medium", "operation": "percentage"}
+  },
+  {
+    "id": "math_007",
+    "question_type": "math",
+    "question": "If x + 7 = 15, what is x?",
+    "expected_answer": "8",
+    "metadata": {"difficulty": "easy", "operation": "algebra"}
+  },
+  {
+    "id": "math_008",
+    "question_type": "math",
+    "question": "Calculate the area of a rectangle with length 8 cm and width 5 cm.",
+    "expected_answer": "40",
+    "metadata": {"difficulty": "medium", "operation": "geometry"}
+  },
+  {
+    "id": "math_009",
+    "question_type": "math",
+    "question": "What is 2^5 (2 to the power of 5)?",
+    "expected_answer": "32",
+    "metadata": {"difficulty": "medium", "operation": "exponentiation"}
+  },
+  {
+    "id": "math_010",
+    "question_type": "math",
+    "question": "A train travels at 60 km/h. How far will it travel in 2.5 hours?",
+    "expected_answer": "150",
+    "metadata": {"difficulty": "medium", "operation": "rate"}
+  },
+  {
+    "id": "logic_001",
+    "question_type": "logic",
+    "question": "All dogs are mammals. Rex is a dog. Is Rex a mammal?",
+    "expected_answer": "Yes",
+    "metadata": {"difficulty": "easy", "type": "syllogism"}
+  },
+  {
+    "id": "logic_002",
+    "question_type": "logic",
+    "question": "If it rains, the ground gets wet. The ground is wet. Did it rain?",
+    "expected_answer": "Not necessarily",
+    "metadata": {"difficulty": "medium", "type": "affirming_consequent"}
+  },
+  {
+    "id": "logic_003",
+    "question_type": "logic",
+    "question": "All cats are animals. Some animals are pets. Are all cats pets?",
+    "expected_answer": "No",
+    "metadata": {"difficulty": "medium", "type": "syllogism"}
+  },
+  {
+    "id": "logic_004",
+    "question_type": "logic",
+    "question": "If A implies B, and B implies C, and A is true, what can we conclude about C?",
+    "expected_answer": "C is true",
+    "metadata": {"difficulty": "medium", "type": "transitive"}
+  },
+  {
+    "id": "logic_005",
+    "question_type": "logic",
+    "question": "No fish can fly. A salmon is a fish. Can a salmon fly?",
+    "expected_answer": "No",
+    "metadata": {"difficulty": "easy", "type": "syllogism"}
+  },
+  {
+    "id": "logic_006",
+    "question_type": "logic",
+    "question": "If the light is on, someone is home. The light is off. Is someone home?",
+    "expected_answer": "Unknown",
+    "metadata": {"difficulty": "hard", "type": "denying_antecedent"}
+  },
+  {
+    "id": "logic_007",
+    "question_type": "logic",
+    "question": "All squares are rectangles. All rectangles have four sides. Do all squares have four sides?",
+    "expected_answer": "Yes",
+    "metadata": {"difficulty": "medium", "type": "transitive"}
+  },
+  {
+    "id": "logic_008",
+    "question_type": "logic",
+    "question": "Either it is sunny or it is raining. It is not sunny. What is the weather?",
+    "expected_answer": "Raining",
+    "metadata": {"difficulty": "easy", "type": "disjunctive"}
+  },
+  {
+    "id": "logic_009",
+    "question_type": "logic",
+    "question": "Some birds can fly. Penguins are birds. Can all penguins fly?",
+    "expected_answer": "No",
+    "metadata": {"difficulty": "medium", "type": "quantifier"}
+  },
+  {
+    "id": "logic_010",
+    "question_type": "logic",
+    "question": "If P then Q. If Q then R. P is false. What can we conclude about R?",
+    "expected_answer": "Nothing can be concluded",
+    "metadata": {"difficulty": "hard", "type": "conditional"}
+  }
+]
