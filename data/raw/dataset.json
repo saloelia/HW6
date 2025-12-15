@@ -25,14 +25,14 @@
     "question_type": "sentiment",
     "question": "Analyze the sentiment of: 'While the service was slow, the food quality made up for it. I would probably come back.'",
     "expected_answer": "positive",
-    "metadata": {"difficulty": "hard", "domain": "restaurant_review"}
+    "metadata": {"difficulty": "medium", "domain": "restaurant_review"}
   },
   {
     "id": "sent_005",
     "question_type": "sentiment",
     "question": "Analyze the sentiment of: 'The new software update has both pros and cons, but overall it fails to impress.'",
     "expected_answer": "negative",
-    "metadata": {"difficulty": "hard", "domain": "tech_review"}
+    "metadata": {"difficulty": "medium", "domain": "tech_review"}
   },
   {
     "id": "sent_006",
@@ -68,6 +68,41 @@
     "question": "Analyze the sentiment of: 'Despite the initial setbacks, the project turned out to be a resounding success!'",
     "expected_answer": "positive",
     "metadata": {"difficulty": "medium", "domain": "business"}
+  },
+  {
+    "id": "sent_011",
+    "question_type": "sentiment",
+    "question": "Analyze the sentiment of: 'Oh great, another software update that improves performance by making everything slower. Just what I needed today. Thanks so much for this amazing gift.'",
+    "expected_answer": "negative",
+    "metadata": {"difficulty": "hard", "domain": "tech_review", "note": "sarcasm"}
+  },
+  {
+    "id": "sent_012",
+    "question_type": "sentiment",
+    "question": "Analyze the sentiment of: 'The hotel room was clean and the bed comfortable, but the noise from the street kept me awake, the breakfast was cold, and when I complained they offered me a 5% discount on my next stay which I will never use because I am never coming back.'",
+    "expected_answer": "negative",
+    "metadata": {"difficulty": "hard", "domain": "hotel_review", "note": "mixed_signals_overall_negative"}
+  },
+  {
+    "id": "sent_013",
+    "question_type": "sentiment",
+    "question": "Analyze the sentiment of: 'I cannot recommend this restaurant highly enough - the service was not bad, the food was not disappointing, and I would not hesitate to not go back again.'",
+    "expected_answer": "negative",
+    "metadata": {"difficulty": "hard", "domain": "restaurant_review", "note": "multiple_negations"}
+  },
+  {
+    "id": "sent_014",
+    "question_type": "sentiment",
+    "question": "Analyze the sentiment of: 'For a movie that critics said would be terrible, it was surprisingly not as bad as expected, though calling it good would be generous.'",
+    "expected_answer": "neutral",
+    "metadata": {"difficulty": "hard", "domain": "movie_review", "note": "hedged_language"}
+  },
+  {
+    "id": "sent_015",
+    "question_type": "sentiment",
+    "question": "Analyze the sentiment of: 'My lawyer did an absolutely stellar job losing my case in record time. Five stars for efficiency!'",
+    "expected_answer": "negative",
+    "metadata": {"difficulty": "hard", "domain": "service_review", "note": "heavy_sarcasm"}
   },
   {
     "id": "math_001",
@@ -140,6 +175,41 @@
     "metadata": {"difficulty": "medium", "operation": "rate"}
   },
   {
+    "id": "math_011",
+    "question_type": "math",
+    "question": "A store offers 20% off all items. You have a coupon for an additional 15% off the already discounted price. If an item originally costs $80, what is the final price before tax?",
+    "expected_answer": "54.40",
+    "metadata": {"difficulty": "hard", "operation": "sequential_percentage"}
+  },
+  {
+    "id": "math_012",
+    "question_type": "math",
+    "question": "A car travels from city A to city B at 40 km/h and returns at 60 km/h. If the distance between the cities is 120 km, what is the average speed for the entire round trip?",
+    "expected_answer": "48",
+    "metadata": {"difficulty": "hard", "operation": "average_speed_trap"}
+  },
+  {
+    "id": "math_013",
+    "question_type": "math",
+    "question": "Three workers can complete a job in 12 days. After working together for 4 days, one worker leaves. How many more days will it take the remaining two workers to finish the job?",
+    "expected_answer": "12",
+    "metadata": {"difficulty": "hard", "operation": "work_rate"}
+  },
+  {
+    "id": "math_014",
+    "question_type": "math",
+    "question": "A tank is filled by pipe A in 6 hours and by pipe B in 8 hours. A drain pipe C can empty the full tank in 12 hours. If all three pipes are opened simultaneously, how many hours will it take to fill the empty tank?",
+    "expected_answer": "4.8",
+    "metadata": {"difficulty": "hard", "operation": "combined_rates"}
+  },
+  {
+    "id": "math_015",
+    "question_type": "math",
+    "question": "You invest $1000 at 10% annual compound interest. After 3 years, you withdraw $500. After 2 more years (5 years total from start), how much money do you have? Round to the nearest dollar.",
+    "expected_answer": "1025",
+    "metadata": {"difficulty": "hard", "operation": "compound_interest_withdrawal"}
+  },
+  {
     "id": "logic_001",
     "question_type": "logic",
     "question": "All dogs are mammals. Rex is a dog. Is Rex a mammal?",
@@ -179,7 +249,7 @@
     "question_type": "logic",
     "question": "If the light is on, someone is home. The light is off. Is someone home?",
     "expected_answer": "Unknown",
-    "metadata": {"difficulty": "hard", "type": "denying_antecedent"}
+    "metadata": {"difficulty": "medium", "type": "denying_antecedent"}
   },
   {
     "id": "logic_007",
@@ -207,6 +277,41 @@
     "question_type": "logic",
     "question": "If P then Q. If Q then R. P is false. What can we conclude about R?",
     "expected_answer": "Nothing can be concluded",
-    "metadata": {"difficulty": "hard", "type": "conditional"}
+    "metadata": {"difficulty": "medium", "type": "conditional"}
+  },
+  {
+    "id": "logic_011",
+    "question_type": "logic",
+    "question": "In a room of 5 people: Alice is taller than Bob. Carol is shorter than Diana. Bob is taller than Carol. Diana is shorter than Alice. Eve is taller than Diana but shorter than Bob. List all 5 people from tallest to shortest.",
+    "expected_answer": "Alice, Bob, Eve, Diana, Carol",
+    "metadata": {"difficulty": "hard", "type": "ordering"}
+  },
+  {
+    "id": "logic_012",
+    "question_type": "logic",
+    "question": "There are three boxes: one contains only apples, one contains only oranges, and one contains both. All boxes are labeled incorrectly. You can pick one fruit from one box without looking inside. What is the minimum number of fruits you need to pick to correctly label all boxes?",
+    "expected_answer": "1",
+    "metadata": {"difficulty": "hard", "type": "deduction_puzzle"}
+  },
+  {
+    "id": "logic_013",
+    "question_type": "logic",
+    "question": "A says: 'B is lying.' B says: 'C is lying.' C says: 'A and B are both lying.' If exactly one person is telling the truth, who is it?",
+    "expected_answer": "B",
+    "metadata": {"difficulty": "hard", "type": "liar_puzzle"}
+  },
+  {
+    "id": "logic_014",
+    "question_type": "logic",
+    "question": "Every person who passed the exam studied hard. Some people who studied hard did not pass the exam. John did not study hard. Can we conclude whether John passed the exam?",
+    "expected_answer": "John did not pass",
+    "metadata": {"difficulty": "hard", "type": "contrapositive"}
+  },
+  {
+    "id": "logic_015",
+    "question_type": "logic",
+    "question": "If it is Monday, then Alice goes to the gym. If Alice goes to the gym, she does not cook dinner. Alice cooked dinner. What day is it NOT?",
+    "expected_answer": "Monday",
+    "metadata": {"difficulty": "hard", "type": "modus_tollens_chain"}
   }
 ]

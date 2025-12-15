@@ -1,6 +1,7 @@
 """Metrics calculation for prompt evaluation."""
 
 import logging
+import re
 from typing import Optional
 
 import numpy as np
@@ -40,7 +41,10 @@ class MetricsCalculator:
         Returns:
             Evaluation metrics for the result
         """
-        response_embedding = self._embedding_service.get_embedding(result.model_response)
+        # Extract final answer from verbose responses (CoT, ReAct)
+        extracted_answer = self._extract_final_answer(result.model_response)
+
+        response_embedding = self._embedding_service.get_embedding(extracted_answer)
         expected_embedding = self._embedding_service.get_embedding(result.expected_answer)
 
         cosine_dist = self._embedding_service.cosine_distance(
@@ -53,7 +57,7 @@ class MetricsCalculator:
             response_embedding, expected_embedding
         )
 
-        exact_match = self._check_exact_match(result.model_response, result.expected_answer)
+        exact_match = self._check_exact_match(extracted_answer, result.expected_answer)
 
         normalized_score = self._calculate_normalized_score(semantic_sim, exact_match)
 
@@ -115,6 +119,78 @@ class MetricsCalculator:
             exact_match_rate=float(np.mean(exact_matches)),
             mean_execution_time_ms=float(np.mean(execution_times)),
         )
+
+    @staticmethod
+    def _extract_final_answer(response: str) -> str:
+        """Extract the final answer from verbose responses.
+
+        Handles Chain of Thought and ReAct format responses by looking for
+        common answer patterns and extracting just the final answer.
+
+        Args:
+            response: The full model response
+
+        Returns:
+            The extracted final answer or original response if no pattern found
+        """
+        response_clean = response.strip()
+
+        # Pattern 1: "Final Answer: X" (ReAct format)
+        final_answer_match = re.search(
+            r"(?:final\s+answer|answer)\s*[:\-]\s*(.+?)(?:\n|$)",
+            response_clean,
+            re.IGNORECASE
+        )
+        if final_answer_match:
+            return final_answer_match.group(1).strip()
+
+        # Pattern 2: "The answer is X" or "The sentiment is X"
+        answer_is_match = re.search(
+            r"(?:the\s+)?(?:answer|sentiment|result|solution)\s+is\s*[:\-]?\s*(.+?)(?:\.|$)",
+            response_clean,
+            re.IGNORECASE
+        )
+        if answer_is_match:
+            return answer_is_match.group(1).strip()
+
+        # Pattern 3: "Therefore, X" or "Thus, X" or "So, X"
+        therefore_match = re.search(
+            r"(?:therefore|thus|so|hence|consequently)\s*[,:]?\s*(.+?)(?:\.|$)",
+            response_clean,
+            re.IGNORECASE
+        )
+        if therefore_match:
+            extracted = therefore_match.group(1).strip()
+            # Only use if it's a short answer (likely the final conclusion)
+            if len(extracted.split()) <= 10:
+                return extracted
+
+        # Pattern 4: Look for the last line if it's short (likely the answer)
+        lines = [line.strip() for line in response_clean.split("\n") if line.strip()]
+        if lines:
+            last_line = lines[-1]
+            # Remove common prefixes
+            last_line = re.sub(r"^(?:answer|final answer|conclusion)\s*[:\-]\s*", "", last_line, flags=re.IGNORECASE)
+            # If last line is short, it's likely the answer
+            if len(last_line.split()) <= 15:
+                return last_line
+
+        # Pattern 5: For single-word expected answers (sentiment, yes/no, numbers)
+        # Check if response contains common answer words at the end
+        single_word_match = re.search(
+            r"\b(positive|negative|neutral|yes|no|unknown|true|false|\d+\.?\d*)\b\s*[.!]?\s*$",
+            response_clean,
+            re.IGNORECASE
+        )
+        if single_word_match:
+            return single_word_match.group(1)
+
+        # If response is already short, return as-is
+        if len(response_clean.split()) <= 20:
+            return response_clean
+
+        # Default: return original response
+        return response_clean
 
     @staticmethod
     def _check_exact_match(response: str, expected: str) -> bool:
